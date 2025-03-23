@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>FirePlan Checker</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="../assets/icons/shield-red.svg" alt="Shield Icon">
+        <h1>FirePlan Checker</h1>
+        <p>Vérifiez facilement vos plans de sécurité incendie</p>
+    </header>
+    
+    <div class="main-container">
+        <nav>
+            <button id="validation-tab">
+                <img src="../assets/icons/check-green.svg" alt="Check Icon"> Validation des calques
+            </button>
+            <button id="address-tab">
+                <img src="../assets/icons/alert-red.svg" alt="Alert Icon"> Vérification des adresses
+            </button>
+            <button id="vei-tab">
+                <img src="../assets/icons/vei-check.svg" alt="VEI Icon"> Nombre de Vous Êtes Ici
+            </button>
+        </nav>
+    <main id="upload-section">
+        <div id="upload-zone">
+            <input type="file" id="file-input" multiple style="display: none;">
+            <img src="../assets/icons/upload-pink.svg" alt="Upload Icon">
+            <p>Déposez vos plans ici ou cliquez pour sélectionner des fichiers</p>
+            <p class="small">Formats acceptés : .ai, .pdf</p>
+            <div id="file-list"></div>
+            <button id="analyze-button" class="analyze-button">Analyser</button>
+        </div>
+    </main>
+    <main id="analysis-section" style="display: none;">
+        <header class="top-bar">
+            <a href="index.html" class="logo-title-container">
+                <img src="../assets/icons/shield-red.svg" alt="Shield Icon">
+                <h1>FirePlan Checker</h1>
+            </a>
+            
+            <!-- Ajout du header d'analyse dans la top bar -->
+            <div class="analysis-header-container">
+                <div class="title-status-container">
+                    <h2>Résultats de l'analyse</h2>
+                    <span class="blocks-counter">0/0 blocs vérifiés</span>
+                    <span class="global-conformity-status non-conforme">Non conforme</span>
+                </div>
+            </div>
+
+            <!-- Boutons d'action -->
+            <div class="analysis-info">
+                <button id="new-analysis-button" class="new-analysis-button">Nouvelle analyse</button>
+                <button id="add-file-button" class="add-file-button">Compte rendu</button>
+            </div>
+        </header>
+                <!-- Contenu principal avec marge-haut pour éviter le chevauchement -->
+        <div class="main-container">
+            <!-- Le reste de votre contenu ici -->
+        </div>
+        <div id="analysis-content" class="analysis-content">
+            <!-- Les résultats de l'analyse seront ajoutés ici dynamiquement -->
+        </div>
+    </main>
+    <!-- Conteneur pour le mode plein écran -->
+    <div id="fullscreen-preview" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; z-index: 9999;">
+        <canvas id="fullscreen-canvas"></canvas>
+    </div>
+    <!-- Conteneur pour l'écran de chargement -->
+    <div id="loading-screen" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 9999; display: flex; justify-content: center; align-items: center;">
+        <div class="spinner"></div>
+    </div>
+    <!-- Dans le head ou juste avant la fermeture du body -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="../scripts/main.js"></script>
+    <footer>
+        <div id="sai-logo">
+            <img src="../assets/icons/sai-logo.svg" alt="SAI">
+        </div>
+    </footer>
+
+    <!-- Popup de confirmation -->
+    <div id="confirmation-popup" class="popup-overlay">
+        <div class="popup-content">
+        <div class="popup-header">
+            <h3>Confirmation</h3>
+        </div>
+        <div class="popup-body">
+            <p>Êtes-vous sûr de vouloir retourner à la page d'accueil ? Votre progression sera perdue.</p>
+        </div>
+        <div class="popup-footer">
+            <button id="confirm-yes" class="popup-button confirm-button">Oui</button>
+            <button id="confirm-cancel" class="popup-button cancel-button">Annuler</button>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

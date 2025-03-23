@@ -1,0 +1,1300 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    color: #333;
+    text-align: center; /* Ceci peut affecter les éléments enfants sans style explicite */
+    padding-top: 70px;
+}
+
+
+header p {
+    color: gray;
+    font-size: 0.9em;
+    margin-top: 5px;
+    gap: 10px; /* Espace entre les boutons */
+    margin-right: 30px; /* Décalage de 30px par rapport au bord droit */
+}
+
+
+nav button {
+    background-color: white;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 15px;
+    margin: 0 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+}
+nav button img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+#upload-zone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px auto;
+    cursor: pointer;
+    width: 80%;
+    max-width: 600px;
+    color: #333;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#upload-zone img {
+    width: 100px;
+    animation: pulse 1s infinite;
+}
+
+#upload-zone p {
+    margin: 10px 0;
+}
+#upload-zone .small {
+    color: gray;
+    font-size: 0.8em;
+}
+#file-list {
+    max-height: 200px;
+    overflow-y: auto;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    margin-top: 5px;
+    flex-grow: 1; /* Permet à la liste des fichiers de prendre tout l'espace disponible */
+    display: flex;
+    flex-direction: column; /* Aligne les fichiers verticalement */
+    gap: 10px; /* Espacement entre les fichiers */
+}
+#sai-logo img {
+    width: 50px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.file-item .file-name {
+    flex-grow: 1;
+    text-align: left; /* Aligner le texte à gauche */
+}
+
+.file-item .file-size {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-size: 12px;
+    color: #333;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.remove-icon {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Styles pour un défilement moderne et minimaliste */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Animation pulse */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Classe pour réduire la taille de l'icône */
+#upload-zone img.small-icon {
+    width: 50px;
+    height: 50px;
+}
+
+/* Styles pour le bouton Analyser */
+.analyze-button {
+    background-color: rgb(73, 158, 68);
+    color: white;
+    border: none;
+    padding: 10px 220px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    display: none; /* Masquer par défaut */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.analyze-button:hover {
+    background-color: rgb(60, 130, 55);
+}
+
+/* Styles pour la section d'analyse */
+.analysis-header {
+    position: relative; /* Pour permettre le positionnement des éléments enfants */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center;
+    padding: 20px 0;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Style pour le conteneur du titre */
+.title-status-container {
+    display: inline-flex;
+    align-items: center;
+    position: relative; /* Pour le positionnement des éléments enfants */
+}
+
+.analysis-header h2 {
+    color: #333;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Style pour le titre centré */
+.title-status-container h2 {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+.analysis-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre les boutons */
+    margin-right: 70px; /* Décalage de 30px par rapport au bord droit */
+}
+
+.analysis-info .plans-conformity {
+    color: gray;
+    margin-right: 10px;
+}
+
+.analysis-info .info-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.analysis-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.analysis-block {
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.file-header .file-name {
+    font-weight: bold;
+}
+
+.file-header .conformity-status {
+    background-color: red;
+    color: white;
+    padding: 3px 8px; /* Réduire la taille de l'indicateur de conformité */
+    border-radius: 10px;
+}
+
+.content-block {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Ajouter un espace entre les sections */
+}
+
+.details-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left; /* Aligner le texte à gauche */
+}
+
+.details-item {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+}
+
+.details-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Espace entre le titre et les détails */
+}
+
+.details-header img.status-icon {
+    margin-right: 10px;
+}
+
+.details-content {
+    text-align: left; /* Aligner le texte à gauche */
+    background-color: #f1f1f1; /* Couleur de fond du bloc */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Nouveau style pour aligner les blocs infos avec le titre */
+.details-item .details-content-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.details-item .details-content-wrapper h3 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.details-item .details-content-wrapper img {
+    width: 24px; /* Taille adaptée pour les logos */
+    height: 24px; /* Taille adaptée pour les logos */
+    margin-right: 10px;
+}
+
+.details-item .details-content-block {
+    margin-left: 30px;
+}
+
+.preview-block {
+    flex: 1;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    text-align: center; /* Aligner le texte au centre */
+    position: relative;
+}
+
+.preview-block h3 {
+    margin-bottom: 10px;
+}
+
+.plan-preview-canvas {
+    max-width: 100%;
+    max-height: 400px;
+    display: block;
+    margin: 0 auto; /* Centrer le canvas */
+    cursor: pointer; /* Changer le curseur pour indiquer que c'est cliquable */
+}
+
+
+#fullscreen-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#fullscreen-canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Styles pour les check-icons */
+.check-icon {
+    width: 48px !important; /* Taille des check-icons */
+    height: 48px !important; /* Taille des check-icons */
+    margin-right: 10px;
+    flex-shrink: 0; /* Empêcher le rétrécissement des check-icons */
+}
+.points-checks-valides {
+    margin-right: 20px;
+}
+
+/* Ajoutez ce CSS pour aligner le texte à droite dans l'en-tête du bloc d'analyse */
+.analysis-block .file-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.analysis-block .points-checks-valides {
+    margin-left: auto;
+    margin-right: 10px; /* Ajoutez un espace entre le texte et le bouton "Non conforme" */
+}
+
+.analysis-header .analysis-info {
+    display: flex;
+    align-items: center;
+}
+
+.analysis-header .new-analysis-button,
+.analysis-header .add-file-button {
+    margin-left: 10px;
+}
+
+.new-analysis-button, .add-file-button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    border: none;
+}
+
+.new-analysis-button {
+    background-color: #f1f3f4;
+    color: #5f6368;
+}
+
+.new-analysis-button:hover {
+    background-color: #e8eaed;
+}
+
+
+.add-file-button {
+    background-color: #304ffe;
+    color: #ffffff;
+}
+
+
+/* Ajoutez ou modifiez les styles suivants pour centrer et aligner les boutons d'informations */
+nav {
+    display: flex;
+    justify-content: center; /* Centre les boutons horizontalement */
+    align-items: center;     /* Aligne les boutons verticalement */
+    gap: 20px;               /* Ajoute un espace entre les boutons */
+    margin-bottom: 20px;     /* Ajoute une marge en bas du nav pour espacement */
+}
+
+/* Style pour le conteneur global du bloc d'aperçu */
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Style pour le conteneur divisé en deux zones horizontales */
+.preview-split-container {
+    display: flex;
+    width: 100%;
+    flex-grow: 1; /* Permet au conteneur de prendre tout l'espace disponible */
+    min-height: 350px; /* Hauteur minimale pour le contenu principal */
+}
+
+/* Style pour la zone gauche de l'aperçu (50%) */
+.preview-left-zone {
+    width: 50%;
+    padding-right: 10px;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style pour la zone droite de l'aperçu (50%) */
+.preview-right-zone {
+    width: 50%;
+    padding-left: 10px;
+}
+
+/* Style pour les titres dans les zones */
+.preview-left-zone h3, 
+.preview-right-zone h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Style pour le contenu des erreurs */
+.errors-content {
+    margin-top: 10px;
+    min-height: 100px;
+}
+
+/* Ajustement pour que le canvas s'adapte à sa zone */
+.preview-left-zone .plan-preview-canvas {
+    max-width: 100%;
+    max-height: 350px;
+    margin-top: 10px;
+}
+
+/* Style pour le bloc de texte éditable */
+.editable-text-block {
+    width: 100%;
+    padding-top: 15px;
+    margin-top: auto; /* Pousse le bloc en bas */
+    display: flex;
+    flex-direction: row; /* Modifié de 'column' à 'row' pour avoir les éléments côte à côte */
+    position: relative; /* Pour positionner le message de sauvegarde */
+    align-items: flex-start; /* Aligne les éléments en haut */
+    gap: 10px; /* Espacement entre la zone de texte et les boutons */
+}
+
+/* Style pour la zone de texte éditable */
+.editable-text-area {
+    min-height: 80px;
+    padding: 15px;
+    background-color: #f7f9fc;
+    border-radius: 8px;
+    border: 1px solid #e0e4e8;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    font-size: 14px;
+    transition: border 0.3s ease;
+    outline: none;
+    flex-grow: 1; /* Prend tout l'espace disponible */
+    box-sizing: border-box;
+    text-align: left; /* Aligner explicitement le texte à gauche */
+}
+
+/* Style pour le placeholder du contenteditable */
+.editable-text-area[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    color: #aaa;
+    pointer-events: none;
+    display: block;
+}
+
+.editable-text-area:focus {
+    border-color: #304ffe;
+    box-shadow: 0 0 0 2px rgba(48, 79, 254, 0.1);
+}
+
+/* Style pour le conteneur des boutons - Utilisez order pour contrôler l'ordre d'affichage */
+.text-block-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+/* Forcer le bouton Enregistrer à être en premier (en haut) */
+.save-button {
+    order: 1;
+}
+
+/* Forcer le bouton Annuler à être en second (en bas) */
+.cancel-button {
+    order: 2;
+}
+
+/* Style pour les boutons */
+.text-block-button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    border: none;
+    width: 120px; /* Largeur fixe pour les deux boutons */
+}
+
+/* Style spécifique pour le bouton Enregistrer */
+.save-button {
+    background-color: #304ffe;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #1e40ff;
+}
+
+/* Style spécifique pour le bouton Annuler */
+.cancel-button {
+    background-color: #f1f3f4;
+    color: #5f6368;
+}
+
+.cancel-button:hover {
+    background-color: #e8eaed;
+}
+
+/* Style pour le message de confirmation d'enregistrement */
+.saved-message {
+    position: absolute;
+    bottom: 45px;
+    right: 130px; /* Ajusté pour se positionner correctement par rapport aux nouveaux boutons */
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    animation: fadeInOut 2s ease forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Style pour le bloc d'aperçu */
+.preview-block {
+    display: flex;
+    height: 100%;
+    min-height: 500px; /* Hauteur minimale pour le bloc d'aperçu */
+}
+
+/* Styles pour les rangées d'icônes */
+.icon-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+/* Styles pour le conteneur d'icône */
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+}
+
+/* Styles pour le numéro de l'icône - maintenant caché */
+.icon-number {
+    font-size: 10px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* Classe pour masquer les éléments */
+.hidden {
+    display: none;
+}
+
+/* Styles pour les icônes cliquables - Augmentation de la taille */
+.clickable-icon {
+    width: 50px;  /* Augmenté de 40px à 50px */
+    height: 50px; /* Augmenté de 40px à 50px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f3f4;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent; /* Bordure transparente par défaut */
+}
+
+.clickable-icon:hover {
+    background-color: #ff0000;
+    transform: translateY(-2px);
+}
+
+.clickable-icon img:hover {
+    filter: brightness(0) invert(1); /* Inversion de l'image SVG au survol */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Style pour l'icône active avec bordure rouge */
+.clickable-icon.active {
+    border: 3px solid #ff0000; /* Bordure rouge pour l'état actif */
+    background-color: #ff0000;
+    transform: translateY(0);
+}
+
+.clickable-icon:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); /* Ombre subtile pour renforcer la visibilité */
+}
+
+/* Augmentation de la taille des images SVG dans les bulles d'icônes */
+.clickable-icon img {
+    width: 40px;  /* Augmenté de 24px à 32px */
+    height: 40px; /* Augmenté de 24px à 32px */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Style de l'image SVG lorsque l'icône est active */
+.clickable-icon.active img {
+    filter: brightness(0) invert(1); /* Rend l'icône SVG blanche */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Style pour le contenu des erreurs */
+.errors-content {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+/* Style pour le header de chaque zone avec l'icône */
+.zone-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    position: relative; /* Permet le positionnement absolu de l'icône */
+    width: 100%;
+    text-align: center; /* Centre le texte du titre */
+}
+
+/* Style pour l'icône de statut - positionnée à gauche */
+.status-icon {
+    margin-top: 10px;
+    width: 48px;
+    height: 48px;
+    position: absolute; /* Positionnement absolu */
+    left: 10px; /* Décalage de 10px depuis le bord gauche */
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%); /* Ajustement pour un centrage vertical parfait */
+    flex-shrink: 0; /* Empêcher le rétrécissement des check-icons */
+}
+
+/* Ajustement des titres dans les en-têtes de zone pour qu'ils restent centrés */
+.zone-header h3 {
+    margin: 0 auto; /* Centre le titre horizontalement */
+    margin-top: 10px;
+    display: inline-block; /* Permet au titre de rester centré indépendamment de l'icône */
+}
+
+/* Style spécifique pour les titres de chaque zone */
+.preview-left-zone .zone-header, 
+.preview-right-zone .zone-header {
+    text-align: center;
+}
+
+/* Style pour l'indicateur de conformité */
+.conformity-status {
+    padding: 3px 8px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+}
+
+/* État conforme (4/4 checks) */
+.conformity-status.conforme {
+    background-color: rgb(73, 158, 68); /* Vert */
+}
+
+/* État non conforme (moins de 4/4 checks) */
+.conformity-status.non-conforme {
+    background-color: red; /* Rouge */
+}
+
+/* Style pour la section de titre et conformité */
+.analysis-title-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Style pour le titre */
+.analysis-title-section h2 {
+    margin: 0;
+    flex-grow: 0;
+}
+
+
+/* Style pour le compteur de blocs - décalé de 20px à droite */
+.blocks-counter {
+    background-color: #f1f3f4;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #5f6368;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto; /* Pousse les éléments suivants vers la droite */
+    margin-left: 20px; /* Espace entre le logo et le compteur */
+}
+
+/* Style pour l'indicateur de conformité global */
+.global-conformity-status {
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    margin-left: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    background-color: red; /* Couleur par défaut */
+}
+
+/* État conforme */
+.global-conformity-status.conforme {
+    background-color: rgb(73, 158, 68); /* Vert */
+}
+
+/* État non conforme */
+.global-conformity-status.non-conforme {
+    background-color: red; /* Rouge */
+}
+
+/* Ajustement du conteneur de titre et statut pour un alignement horizontal */
+.title-status-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    margin-right: 20px; /* Espace entre le groupe central et les boutons d'action */
+}
+
+/* Style pour le titre */
+.title-status-container h2 {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    /* Assurez-vous qu'il n'y a pas de margin qui perturberait l'alignement */
+    line-height: 1.2; /* Pour un meilleur alignement vertical */
+}
+
+
+/* Style pour l'indicateur de conformité global - centré verticalement */
+.global-conformity-status {
+    padding: 3px 8px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 1.2; /* Pour aligner avec le titre */
+    display: flex;
+    align-items: center;
+}
+
+/* Ajustement spécifique du header d'analyse */
+.analysis-header {
+    display: flex;
+    flex-direction: column; /* Change en colonne au lieu de ligne */
+    align-items: center; /* Centre les éléments horizontalement */
+    padding: 20px 0;
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Style pour la barre supérieure fixe */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 10px 0; /* Supprimez le padding horizontal ici */
+    height: 60px;
+}
+
+/* Correction du positionnement du logo */
+header img {
+    height: 40px;
+    margin-right: 15px;
+    margin-left: 20px; /* Ajout d'une marge gauche de 20px */
+}
+
+/* Style pour le conteneur du titre et du logo */
+header .logo-title-container {
+    height: 40px;
+    margin-right: 15px;
+}
+
+
+.logo-title-container h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+}
+
+
+/* Si nécessaire, ajustez la disposition globale du header */
+header {
+    justify-content: flex-start; /* Aligne tous les éléments du header à gauche */
+    text-align: left;
+}
+
+/* Ajuster le positionnement des éléments principaux pour éviter qu'ils soient cachés sous le header */
+body {
+    padding-top: 70px; /* Un peu plus que la hauteur du header pour éviter le chevauchement */
+}
+
+/* Ajustement pour la barre de navigation */
+nav {
+    margin-top: 5px; /* Espace entre le header fixe et la navigation */
+}
+
+/* Pour les sections d'analyse, ajuster également leur position */
+#upload-section, #analysis-section {
+    margin-top: 10px;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espace les éléments horizontalement */
+    padding: 10px 20px;
+    height: 60px;
+}
+
+@media screen and (max-width: 992px) {
+    .top-bar {
+        flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+        height: auto; /* Hauteur automatique pour s'adapter au contenu */
+        padding: 10px;
+    }
+    
+    .analysis-header-container {
+        max-width: 100%;
+        margin: 10px 0;
+        order: 3; /* Place le conteneur d'analyse sous le logo et les boutons */
+        width: 100%; /* Prend toute la largeur */
+    }
+    
+    .analysis-info {
+        order: 2; /* Place les boutons après le logo */
+    }
+    
+    body {
+        padding-top: 100px; /* Ajuster selon la hauteur réelle de la top bar */
+    }
+}
+
+/* Style pour la barre supérieure fixe - applicable à toutes les pages */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Changé de space-between à flex-start pour aligner à gauche */
+    padding: 10px 20px;
+    height: 60px;
+}
+
+/* Style pour l'image du logo - uniformisé */
+header img:first-of-type, .logo-title-container img {
+    height: 40px;
+    margin-right: 15px;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+/* Style pour le titre h1 - uniformisé pour toutes les pages */
+header h1, .logo-title-container h1 {
+    display: inline-block;
+    color: #333; /* Rouge comme sur la page des fichiers importés */
+    font-weight: 600;
+    vertical-align: middle;
+    margin: 0;
+    margin-left: 10px;
+    font-size: 24px;
+    text-align: left; /* Assurez-vous que le texte est aligné à gauche */
+}
+
+/* Style pour le conteneur du logo et du titre */
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alignement à gauche explicite */
+    margin-right: auto; /* Pousse les autres éléments vers la droite */
+    width: auto; /* Ne pas forcer une largeur spécifique */
+    text-align: left; /* Texte aligné à gauche */
+    cursor: pointer; /* Changement du curseur pour indiquer que c'est cliquable */
+    transition: opacity 0.2s ease; /* Transition douce pour l'effet de survol */
+    text-decoration: none; /* Supprime le soulignement si utilisé comme lien */
+}
+
+
+/* Effet de survol sur le conteneur logo + titre */
+.logo-title-container:hover {
+    opacity: 0.8; /* Légère transparence au survol pour feedback visuel */
+}
+
+/* Empêcher la sélection de texte sur le titre lors du clic */
+.logo-title-container h1 {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Style pour le texte descriptif dans la top bar de la page d'accueil */
+header p {
+    color: gray;
+    font-size: 0.9em;
+    margin: 0; /* Supprimer les marges par défaut */
+    margin-right: 70px; /* Décalage de 20px vers la gauche depuis le bord droit */
+    margin-left: auto; /* Pousse l'élément vers la droite de la top bar */
+    white-space: nowrap; /* Empêche le texte de revenir à la ligne */
+    text-align: right; /* Aligne le texte à droite */
+    display: block; /* S'assure que l'élément est affiché correctement */
+}
+
+/* Styles pour la popup de confirmation */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .popup-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 400px;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .popup-overlay.active .popup-content {
+    transform: translateY(0);
+  }
+  
+  .popup-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .popup-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .popup-body {
+    padding: 20px;
+  }
+  
+  .popup-body p {
+    margin: 0;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.4;
+    text-align: center;
+  }
+  
+  .popup-footer {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .popup-button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    border: none;
+    min-width: 100px;
+  }
+  
+  .confirm-button {
+    background-color: #304ffe;
+    color: white;
+  }
+  
+  .confirm-button:hover {
+    background-color: #1e40ff;
+  }
+  
+  .cancel-button {
+    background-color: #f1f3f4;
+    color: #5f6368;
+  }
+  
+  .cancel-button:hover {
+    background-color: #e8eaed;
+  }
+  
+  /* Animation pour faire apparaître la popup en douceur */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .popup-content {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+
+
+#blocks-counter {
+    font-weight: 500;
+}
+
+/* Si le nombre de blocs conformes est égal au total, afficher en vert */
+#blocks-counter.all-verified {
+    color: rgb(73, 158, 68);
+}
+
+/* Style pour le conteneur du bouton de toggle */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+/* Style pour le bouton de toggle */
+.expand-collapse-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background-color: #f1f3f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    color: #5f6368;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.expand-collapse-btn:hover {
+    background-color: #e8eaed;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.expand-collapse-btn svg {
+    transition: transform 0.2s ease;
+}
+
+/* Rotation de l'icône quand le bloc est réduit */
+.analysis-block.collapsed .expand-collapse-btn svg {
+    transform: rotate(-90deg);
+}
+
+/* Style du header lorsque le bloc est réduit */
+.analysis-block {
+    margin-bottom: 16px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background-color: white;
+    transition: box-shadow 0.3s ease;
+}
+
+.analysis-block:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Style du bloc d'analyse */
+.analysis-block {
+    margin-bottom: 16px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background-color: #f9f9f9; /* Couleur de fond du bloc modifiée */
+    transition: box-shadow 0.3s ease;
+}
+
+.analysis-block:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Style pour le header du fichier */
+.file-header {
+    padding: 12px 16px;
+    border-radius: 20px;
+    background-color: #ffffff; /* Couleur de fond du header modifiée */
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Style pour le conteneur du bouton de toggle */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+/* Style pour le bouton de toggle */
+.expand-collapse-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background-color: #f1f3f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    color: #5f6368;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.expand-collapse-btn:hover {
+    background-color: #e8eaed;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.expand-collapse-btn svg {
+    transition: transform 0.2s ease;
+}
+
+/* Rotation de l'icône quand le bloc est réduit */
+.analysis-block.collapsed .expand-collapse-btn svg {
+    transform: rotate(-90deg);
+}
+
+/* Cacher le contenu du bloc lorsqu'il est réduit */
+.analysis-block.collapsed .content-block {
+    display: none;
+}
+
+/* Animation du bouton au survol */
+.expand-collapse-btn:active {
+    transform: scale(0.95);
+}
+
+/* Transitions fluides pour le contenu */
+.content-block {
+    transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+    overflow: hidden;
+    max-height: 2000px; /* Valeur assez grande pour contenir tout le contenu */
+    opacity: 1;
+    background-color: #f9f9f9; /* Assurons-nous que le contenu a aussi la bonne couleur */
+}
+
+.analysis-block.collapsed .content-block {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Styles pour l'écran de chargement */
+#loading-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
